@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+    <style>
+        * {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: skyblue;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: white;
+        }
+
+        body {
+            background-color: rgb(0, 12, 12);
+        }
+
+        section {
+            padding: 5rem 9%;
+        }
+
+        .heading {
+            color: white;
+            font-size: 3rem;
+            font-weight: 200;
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+
+        .heading span {
+            font-weight: 700;
+        }
+
+        .button {
+            background-color: rgba(164, 243, 86, 0.826);
+            font-size: 1.7rem;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            color: crimson;
+            text-transform: uppercase;
+            margin-right: 1rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .banner {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(mypicture.jpeg);
+            filter: grayscale(100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .banner .hero-text {
+            font-size: 7rem;
+            color: white;
+            font-weight: 200;
+            line-height: 1.2;
+        }
+
+        .banner .hero-text span {
+            font-weight: 700;
+        }
+
+        .banner p {
+            color: darkgray;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 5rem 9%;
+            z-index: 100;
+        }
+
+        .header .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header .navbar a {
+            font-size: 1.5rem;
+            color: white;
+            padding: 0 2rem;
+            letter-spacing: 0.3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        .header .menu {
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            display: none;
+        }
+
+        .header.active {
+            background-color: white;
+            padding: 3rem 9%;
+        }
+
+        .header.active .navbar a {
+            color: #222222;
+        }
+
+        .header.active .navbar a:hover {
+            color: yellow;
+        }
+
+        .header.active .menu {
+            color: darkgray;
+        }
+
+        .heading {
+            color: white;
+            font-size: 3rem;
+            font-weight: 200;
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+
+        .heading span {
+            font-weight: 700;
+        }
+
+        /* utility class */
+
+        .myproject .box-container .box .image {
+            height: 30rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .myproject .box-container .box .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .myproject .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .myproject .box-container .box {
+            background-color: skyblue;
+            padding: 1rem;
+            box-shadow: rgb(54, 52, 52);
+        }
+
+        .myproject .box-container .box:hover img {
+            transform: scale(1.2);
+        }
+
+        .myproject .box-container .box .image .content {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: skyblue;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(100%);
+        }
+
+        .myproject .box-container .box .content h2 {
+            font-size: 2rem;
+            color: white;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+        }
+
+        .myproject .box-container .box:hover .image .content {
+            transform: translateY(0);
+        }
+
+        /* portfolio */
+        /* add scrollbar */
+        /* fix header */
+
+        /* resume */
+        .resume .col .box {
+            background-color: rgb(156, 156, 219);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .resume .col-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .resume .col h2 {
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 200;
+            padding-bottom: 2rem;
+        }
+
+        .resume .col .box span {
+            color: white;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .resume .col .box span i {
+            padding-right: 0.5rem;
+            font-size: 1.7rem;
+        }
+
+        .resume .col .box h3 {
+            color: darkblue;
+            font-size: 2rem;
+            margin-top: 1rem;
+            font-weight: 400;
+        }
+
+        .resume .col .box p {
+            font-size: 1.7rem;
+            color: rgb(75, 1, 247);
+            margin-top: 1rem;
+            line-height: 1.5;
+            text-transform: none;
+        }
+
+        .resume .col .box .university {
+            color: lightgray;
+            text-transform: capitalize;
+        }
+
+        /* resume */
+
+        /* about */
+        .about .box-container .box .image {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .about .box-container .box .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .about .box-container .box p {
+            color: darkgray;
+            margin-bottom: 2rem;
+            font-size: 1.7rem;
+            letter-spacing: 0.1rem;
+            line-height: 1.5;
+            text-transform: none;
+        }
+
+        /* utlity class */
+        .btn {
+            background-color: yellowgreen;
+            font-size: 1.7rem;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            color: white;
+            text-transform: uppercase;
+            margin-right: 1rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* utlity class */
+        /* about */
+        /* skill container*/
+        .skills-container {
+            width: 100%;
+            background-color: gray;
+            text-align: left;
+            font-size: medium;
+            color: black;
+        }
+
+        .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: black;
+        }
+
+        .html {
+            width: 70%;
+            background-color: skyblue;
+        }
+
+        .css {
+            width: 42%;
+            background: linear-gradient(to right,violet,indigo,blue,green,yellow,orange,red);
+        }
+
+        .js {
+            width: 25%;
+            background-color: orange;
+        }
+
+        .java {
+            width: 60%;
+            background-color: red;
+        }
+
+        .php {
+            width: 50%;
+            background-color: greenyellow;
+        }
+
+        .unity {
+            width: 15%;
+            background-color: aquamarine;
+        }
+
+        /* skill container*/
+        /*contact form*/
+        .contact .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 6rem;
+        }
+
+        .contact .contact-container .contact h2 {
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 200;
+            padding-bottom: 5rem;
+        }
+
+        .contact .contact-container .contact input,
+        .contact .contact-container .contact textarea {
+            background-color: lightgray;
+            width: 100%;
+            padding: 1rem, 2rem;
+            border-radius: 2.5rem;
+            font-size: 1.7rem;
+            color: darkgray;
+            margin: 0.5rem 0;
+            resize: vertical;
+        }
+
+        .contact .contact-container .contact p {
+            font-size: medium;
+            color: lawngreen;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .contact .contact-container .contact span {
+            font-size: 1.5rem;
+            color: cyan;
+            letter-spacing: 0.1rem;
+        }
+
+        /*contact form*/
+        /*footer*/
+        .footer {
+            border-top: 0.2rem solid cyan;
+            text-align: center;
+        }
+
+        .footer .socials ion-icon {
+            font-size: 2.5rem;
+            color: greenyellow;
+            background-color: red;
+            border-radius: 50%;
+            padding: 1rem;
+            margin: 0 1rem;
+            cursor: pointer;
+        }
+
+        .footer p {
+            font-size: 1.7rem;
+            color: indigo;
+            margin-top: 3rem;
+        }
+
+        /*footer*/
+
+        /* media queries */
+        @media (max-width: 1200px) {
+            .header {
+                padding: 3rem 2rem;
+            }
+
+            .header.active {
+                padding: 2rem;
+            }
+
+            section {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .menu {
+                display: block;
+            }
+
+            .header .navbar {
+                position: fixed;
+                top: 6rem;
+                left: 0;
+                right: 0;
+                background: white;
+                display: flex;
+                flex-flow: column;
+                text-align: center;
+                transform: translateX(100%);
+            }
+
+            .header .navbar a {
+                color: black;
+                margin: 0;
+                font-size: 2rem;
+                margin: 2rem 0;
+            }
+
+            header .navbar.show {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 55%;
+            }
+
+            .home .hero-text {
+                font-size: 6rem;
+            }
+        }
+
+        /* media queries */
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <a><i class="menu material-icons"> menu </i></a>
+        <nav class="navbar">
+            <a href="#">home</a>
+            <a href="#myproject">my projects</a>
+            <a href="#resume">resume</a>
+            <a href="#about">about</a>
+            <a href="#myskills">skills</a>
+            <a href="#contact">contact</a>
+        </nav>
+    </header>
+    <section class="banner" id="home">
+        <h1 class="hero-text">
+            hello, i'm <br />
+            <span>Kirtan kumar
+            </span>
+        </h1>
+        <p>and this is my resume</p>
+    </section>
+    <section class="myproject" id="myproject">
+        <h1 class="heading">featured <span>Project</span></h1>
+
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <a href="C:\Users\kirtan kumar\Downloads\Telegram Desktop\Project SEM-6 Final.pptx"
+                        download="C:\Users\kirtan kumar\Downloads\Telegram Desktop\Project SEM-6 Final.pptx">
+                        <img src="C:\xampp\htdocs\webpage\projectphoto.jpg" alt="" /></a>
+                    <div class="content">
+                        <h2>project #1</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="resume" id="resume">
+        <h1 class="heading">my <span>resume</span></h1>
+        <div class="col-container">
+            <div class="col">
+                <h2>education</h2>
+                <div class="box">
+                    <span><i class="material-icons"> calendar_today </i> oct 2020 - may 2023</span>
+                    <h3>diploma in computer engineering</h3>
+                    <p>
+                        Waiting For Final Semester Exam result..... 
+                    </p>
+                    <p class="university">Shree KJ Polytechnic Bharuch</p>
+                </div>>
+            </div>
+            <div class="col-container">
+                <div class="col">
+                    <h2>education</h2>
+                    <div class="box">
+                        <span><i class="material-icons"> calendar_today </i> july 2020</span>
+                        <h3>10th SSC Board Pass out</h3>
+                        <p>
+                            65% in 10th GSEB SSC Board Exam.
+                        </p>
+                        <p class="university">Navyug English Medium School</p>
+                    </div>>
+                </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="C:\xampp\htdocs\webpage\mydancingphoto.jpg" alt="" />
+                </div>
+            </div>
+            <div class="box">
+                <h1 class="heading">about <span>me</span></h1>
+                <p>
+                    Hello Viewers, I am Kirtan if u r reading this that means you want to know about me right?
+                </p>
+                <p>
+                    You see below is button to download my CV and read it and don't forget to check out my Project just
+                    click that image in Project section.
+                </p>
+                <a href="C:\xampp\htdocs\webpage\Parmar Kirtan Kumar's Resume.pdf"
+                    download="C:\xampp\htdocs\webpage\Parmar Kirtan Kumar's Resume.pdf" class="btn">download CV</a>
+            </div>
+        </div>
+    </section>
+    <section id="myskills">
+        <h1 class="heading">My<span> Skills</span></h1>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">HTML</p>
+        <div class="skills-container">
+            <div class="skills html">70%</div>
+        </div>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">CSS</p>
+        <div class="skills-container">
+            <div class="skills css">42%</div>
+        </div>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">JAVASCRIPT</p>
+        <div class="skills-container">
+            <div class="skills js">25%</div>
+        </div>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">JAVA</p>
+        <div class="skills-container">
+            <div class="skills java">60%</div>
+        </div>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">PHP</p>
+        <div class="skills-container">
+            <div class="skills php">50%</div>
+        </div>
+        <p style="text-align:left;
+        color:white;
+        font-size: 24px;">C#(For Unity Engine)</p>
+        <div class="skills-container">
+            <div class="skills unity">15%</div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h1 class="heading">Send your<span> Feedback</span> </h1>
+        <div class="contact-container">
+            <div class="contact">
+                <h2>Send your feedback to me</h2>
+                <input type="text" placeholder="your name" />
+                <br />
+                <br />
+                <input type="email" placeholder="your email" />
+                <br />
+                <br />
+                <input type="text" placeholder="your phone" />
+                <br />
+                <br />
+                <textarea name="" placeholder="write a message" id="" cols="30" rows="10"></textarea>
+                <a href="www.gmail.com" class="btn">send message</a>
+            </div>
+            <div class="contact">
+                <h2>my contact details</h2>
+                <p>email</p>
+                <span>kirtanp728@gmail.com</span>
+                <br />
+                <br />
+                <p>phone</p>
+                <span>+91 8140372756</span>
+                <br />
+                <br />
+                <p>address</p>
+                <span>Room no 82, Block 7, VMC, <br />
+                    TP-13,Chhani Jakat Naka, <br />
+                    Vadodara, Gujarat 390002</span>
+            </div>
+        </div>
+    </section>
+    <section class="footer" id="footer">
+        <div class="socials">
+            <ion-icon name="logo-google"></ion-icon>
+            <ion-icon name="logo-twitter"></ion-icon>
+            <ion-icon name="logo-youtube"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </div>
+        <p>developed by Kirtan Kumar</p>
+        <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
